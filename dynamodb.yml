@@ -1,1 +1,38 @@
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  OrdersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: AuthorsTable_prod
+      AttributeDefinitions:
+         AttributeName: "StudentId"
+          AttributeType: "S"
+        - 
+          AttributeName: "First Name"
+          AttributeType: "S"
+        - 
+          AttributeName: "Last Name"
+          AttributeType: "S"
+        - 
+          AttributeName: "DOB"
+          AttributeType: "S"
+        -
+          AttributeName: "Grade"
+          AttributeType: "S"
 
+        - AttributeName: "Email"
+          AttributeType: "S"
+      KeySchema:
+        - AttributeName: "StudentId"
+          KeyType: "HASH"
+        - AttributeName: "Email"
+          KeyType: "RANGE"
+      TimeToLiveSpecification:
+        AttributeName: "ExpirationTime"
+        Enabled: true
+      ProvisionedThroughput:
+        ReadCapacityUnits: "10"
+        WriteCapacityUnits: "5"
+    DependsOn:
+      - DynamoDBQueryPolicy
+      
