@@ -35,7 +35,7 @@ Resources:
         WriteCapacityUnits: "5"
     DependsOn:
       - DynamoDBQueryPolicy
-      
+
   DynamoDBQueryPolicy:
     Type: "AWS::IAM::Policy"
     Properties:
@@ -48,4 +48,17 @@ Resources:
             Resource: "*"
       Roles:
         - Ref: "OrdersTableQueryRole"
-        
+
+  OrdersTableQueryRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "dynamodb.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Path: "/"
