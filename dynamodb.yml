@@ -5,21 +5,9 @@ Resources:
     Properties:
       TableName: AuthorsTable_prod
       AttributeDefinitions:
-         AttributeName: "StudentId"
+          AttributeName: "StudentId"
           AttributeType: "S"
-        - 
-          AttributeName: "First Name"
-          AttributeType: "S"
-        - 
-          AttributeName: "Last Name"
-          AttributeType: "S"
-        - 
-          AttributeName: "DOB"
-          AttributeType: "S"
-        -
-          AttributeName: "Grade"
-          AttributeType: "S"
-
+         
         - AttributeName: "Email"
           AttributeType: "S"
       KeySchema:
