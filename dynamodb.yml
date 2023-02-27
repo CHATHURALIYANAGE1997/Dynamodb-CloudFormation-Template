@@ -5,7 +5,7 @@ Resources:
     Properties:
       TableName: AuthorsTable_prod
       AttributeDefinitions:
-          AttributeName: "StudentId"
+        - AttributeName: "StudentId"
           AttributeType: "S"
          
         - AttributeName: "Email"
