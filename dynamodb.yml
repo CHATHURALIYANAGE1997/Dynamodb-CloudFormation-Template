@@ -32,7 +32,14 @@ Resources:
         Version: "2012-10-17"
         Statement:
           - Effect: "Allow"
-            Action: "dynamodb:Query"
+            Action: 
+              - dynamodb:DescribeTable
+              - dynamodb:Scan
+              - dynamodb:PutItem
+              - dynamodb:GetItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+              - dynamodb:Query
             Resource: "*"
       Roles:
         - Ref: "OrdersTableQueryRole"
